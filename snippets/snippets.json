@@ -1,0 +1,40 @@
+{
+  "i18n Component": {
+    "prefix": "rtc",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [
+      "import React from 'react'",
+      "import { useTranslation } from 'react-i18next';",
+      "",
+      "const Component = () => {",
+      "    const { t, i18n } = useTranslation();",
+      "    return (",
+      "        <div>Component</div>",
+      "    );",
+      "};",
+      "",
+      "export default Component;"
+    ]
+  },
+  "useTranslation formatTranslation": {
+    "prefix": "ut",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [
+      "const { t, i18n } = useTranslation();"
+    ]
+  },
+  "add formatTranslation": {
+    "prefix": "ft",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [
+      "t('$1')"
+    ]
+  },
+  "add formatTranslation in jsx {}": {
+    "prefix": "ftx",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [
+      "{t('$1')}"
+    ]
+  }
+}

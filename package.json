@@ -1,0 +1,124 @@
+{
+  "name": "react-i18n-snippets",
+  "displayName": "react-i18n-autoComplete",
+  "description": "react-i18n snippet and extension for auto complete",
+  "version": "1.0.1",
+  "publisher": "charonyuu",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.85.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Charonyuu/react-i18n-autoComplete"
+  },
+  "categories": [
+    "Snippets",
+    "Extension Packs",
+    "Formatters"
+  ],
+  "main": "./index.js",
+  "activationEvents": [
+    "onCommand:extension.findi18nKey"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/snippets.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.findi18nKey",
+        "title": "Find Key for Selected Value in en.json"
+      }
+    ],
+    "languages": [
+      {
+        "id": "javascript",
+        "extensions": [
+          ".js"
+        ]
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "extension.findi18nKey",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "extension.findi18nKey",
+        "key": "alt+t",
+        "mac": "alt+t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "React-i18n-next Auto Complete Settings",
+      "properties": {
+        "i18nAutoComplete.singleValueReplacei18nSetting": {
+          "type": "string",
+          "default": "Always Ask",
+          "enum": [
+            "Always Replace",
+            "Always Ask",
+            "Always Manually"
+          ],
+          "description": "Replace single value automatically or manually",
+          "enumDescriptions": [
+            "Always replace single value automatically",
+            "Always ask before replace single value",
+            "Always replace single value manually"
+          ]
+        },
+        "i18nAutoComplete.addInEnJsoni18nSetting": {
+          "type": "string",
+          "default": "Always Ask",
+          "enum": [
+            "Always Add",
+            "Always Ask",
+            "Never Add"
+          ],
+          "description": "Add new key in en.json automatically or manually",
+          "enumDescriptions": [
+            "Always add new key in en.json automatically",
+            "Always ask before add new key in en.json",
+            "Never add new key in en.json"
+          ]
+        },
+        "i18nAutoComplete.i18nTranslationFile": {
+          "type": "string",
+          "default": "en.json",
+          "description": "Translation file name, for example: en.json, zh-tw.json, etc.\nIt is for adding new key in translation file or finding key-value in the translation file when not setting directTranslationFilePath.(directTranslationFilePath priority is higher than this setting)"
+        },
+        "i18nAutoComplete.i18nTranslationFileDirectPath": {
+          "type": "string",
+          "default": "",
+          "description": "(Optional)\nSpecifies the direct path to the translation file (relative to the workspace).\nIt is used to find a file that is located on a complicated path or not within the workspace.\nIf set, it will make the searching process faster (though I don't have a strong feeling about it XD).\nIf left empty, the extension will first look for the translation file at 'src/locales/intl/${translationFile}'.\nIf not found there, it will then search for the translation file in the same file name."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "vsce package",
+    "update": "npm version patch"
+  },
+  "license": "MIT"
+}
